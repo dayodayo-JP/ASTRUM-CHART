@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "astrum-chart-vscode.helloWorld",
-        "title": "Hello World"
+        "command": "astrum-chart-vscode.start",
+        "title": "ASTRUM-CHART"
       }
     ]
   },

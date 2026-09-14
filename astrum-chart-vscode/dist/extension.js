@@ -36,11 +36,28 @@ __export(extension_exports, {
 module.exports = __toCommonJS(extension_exports);
 var vscode = __toESM(require("vscode"));
 function activate(context) {
-  console.log('Congratulations, your extension "astrum-chart-vscode" is now active!');
-  const disposable = vscode.commands.registerCommand("astrum-chart-vscode.helloWorld", () => {
-    vscode.window.showInformationMessage("Hello World from ASTRUM-CHART-VSCODE!");
-  });
-  context.subscriptions.push(disposable);
+  const panel = vscode.window.createWebviewPanel(
+    "ASTRUM-CHART",
+    "ASTRUM-CHART",
+    vscode.ViewColumn.One,
+    {}
+  );
+  context.subscriptions.push(panel);
+  panel.webview.html = getHTML();
+}
+function getHTML() {
+  return `
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>hogehoge</title>
+	</head>
+	<body>
+		<h1>hogehoge</h1>
+	</body>
+	</html>`;
 }
 function deactivate() {
 }
